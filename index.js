@@ -1,10 +1,11 @@
 import express from 'express'
 import cors from 'cors';
 import { sequelize } from './Schema/itemSchema.js';
-import getList from './Routes/fetchList.js';
-import assignItems from './Routes/assignItems.js';
-import returnItems from './Routes/returnItems.js';
-import userItemUse from './Routes/assignedItemsToUser.js';
+import getList from './Routes/getItemList.js';
+import addItems from './Routes/addItems.js';
+import student from './Routes/studentRecords.js';
+import newItem from './Routes/addNewItem.js';
+import returnItem from './Routes/returnItems.js'
 
 sequelize.authenticate().then(()=>{
     console.log(`Database connected successfully`)
@@ -19,9 +20,10 @@ app.use(cors());
 app.use(express.json());
 
 app.use(getList);
-app.use(assignItems);
-app.use(returnItems);
-app.use(userItemUse)
+app.use(student);
+app.use(newItem);
+app.use(addItems);
+app.use(returnItem);
 
 app.listen(PORT,()=>{
     console.log(`Backend is running on port: ${PORT}`)

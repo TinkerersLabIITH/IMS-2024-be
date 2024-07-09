@@ -48,3 +48,5 @@ router.put('/add-items',async (req,res)=>{
         res.status(500).json({message: "An error occurred while updating items and logs"});
     }
 })
+
+export default router;

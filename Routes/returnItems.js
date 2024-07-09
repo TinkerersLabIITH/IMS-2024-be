@@ -39,3 +39,5 @@ router.put('/return', async (req,res)=>{
         res.status(500).json({ message: 'An error occurred while processing the return', error: err.message });
     }
 })
+
+export default router;
